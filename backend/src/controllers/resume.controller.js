@@ -1,18 +1,25 @@
-export const uploadResume = async(req,res) =>{
-    try{
-        if(!req.file){
-            return res.status(400).json({message: 'No file uploaded'});
-        }
-            res.status(200).json({
-            message: 'File uploaded successfully',
-            fileName:req.file.filename,
-            uploadedAt : new Date()
-        });
-    }
-    catch(error){
-        res.status(500).json({
-            message: 'Upload failed',
-            error: error.message
-        });
-    }
+import { extractTextFromPDF } from "../services/pdfParser.service.js";
+import { extractSkillsFromText, detectExperienceLevel } from "../services/skillExtractor.service.js";
+import path from "path";
+
+export const uploadResume = async (req, res) => {
+  try {
+    const filePath = path.resolve(req.file.path);
+
+    const resumeText = await extractTextFromPDF(filePath);
+    const skills = extractSkillsFromText(resumeText);
+    const experienceLevel = detectExperienceLevel(resumeText);
+
+    res.status(200).json({
+      message: "Resume processed successfully",
+      extractedData: {
+        skills,
+        experienceLevel
+      }
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Resume parsing failed" });
+  }
 };
