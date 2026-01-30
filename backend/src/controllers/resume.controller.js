@@ -1,5 +1,8 @@
 import { extractTextFromPDF } from "../services/pdfParser.service.js";
 import { extractSkillsFromText, detectExperienceLevel } from "../services/skillExtractor.service.js";
+import { ROLE_SKILLS } from "../data/roleSkills.js";
+import { analyzeSkillGap, calculateReadinessScore } from "../services/skillGapAnalyzer.service.js";
+
 import path from "path";
 
 export const uploadResume = async (req, res) => {
@@ -10,13 +13,21 @@ export const uploadResume = async (req, res) => {
     const skills = extractSkillsFromText(resumeText);
     const experienceLevel = detectExperienceLevel(resumeText);
 
-    res.status(200).json({
-      message: "Resume processed successfully",
-      extractedData: {
-        skills,
-        experienceLevel
-      }
-    });
+    const targetRole = req.body.targetRole || "SDE";
+    const roleSkills = ROLE_SKILLS[targetRole];
+
+    const gapAnalysis = analyzeSkillGap(skills, roleSkills);
+    const readinessScore = calculateReadinessScore(gapAnalysis, roleSkills);
+    
+
+   res.status(200).json({
+  message: "Career analysis complete",
+  targetRole,
+  skillsExtracted: skills,
+  skillGap: gapAnalysis,
+  readinessScore,
+  experienceLevel
+});
 
   } catch (error) {
     console.error(error);
