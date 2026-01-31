@@ -31,15 +31,17 @@ Tasks:
 4. Keep the tone practical, not motivational.
 5. Do NOT invent new skills.
 
-Return output in JSON with keys:
+Return output strictly as valid JSON with keys:
 profileSummary, skillGapExplanation, roadmapExplanation
 `;
 
   const response = await groq.chat.completions.create({
-    model: "mixtral-8x7b-32768",
+    model: "llama-3.1-8b-instant",
     messages: [{ role: "user", content: prompt }],
-    temperature: 0.3
+    temperature: 0.3,
+    response_format: { type: "json_object" } // 🔥 forces JSON only
   });
 
-  return JSON.parse(response.choices[0].message.content);
+  // Groq guarantees valid JSON here
+  return response.choices[0].message.content;
 };
