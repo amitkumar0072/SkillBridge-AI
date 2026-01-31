@@ -2,6 +2,9 @@ import { extractTextFromPDF } from "../services/pdfParser.service.js";
 import { extractSkillsFromText, detectExperienceLevel } from "../services/skillExtractor.service.js";
 import { ROLE_SKILLS } from "../data/roleSkills.js";
 import { analyzeSkillGap, calculateReadinessScore } from "../services/skillGapAnalyzer.service.js";
+import { generateLearningRoadmap } from "../services/roadmapGenerator.service.js";
+import { generateCareerExplanation } from "../services/llmExplanation.service.js";
+
 
 import path from "path";
 
@@ -19,6 +22,26 @@ export const uploadResume = async (req, res) => {
     const gapAnalysis = analyzeSkillGap(skills, roleSkills);
     const readinessScore = calculateReadinessScore(gapAnalysis, roleSkills);
     
+    const roadmap = generateLearningRoadmap(gapAnalysis);
+
+    const explanations = await generateCareerExplanation({
+  targetRole,
+  skillGap: gapAnalysis,
+  readinessScore,
+  roadmap
+});
+
+
+   res.status(200).json({
+  message: "Career analysis complete",
+  targetRole,
+  readinessScore,
+  skillGap: gapAnalysis,
+  learningRoadmap: roadmap,
+  explanations
+});
+
+
 
    res.status(200).json({
   message: "Career analysis complete",
