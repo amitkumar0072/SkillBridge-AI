@@ -42,6 +42,8 @@ profileSummary, skillGapExplanation, roadmapExplanation
     response_format: { type: "json_object" } // 🔥 forces JSON only
   });
 
+
+  console.log("Groq Response:", response.choices[0].message.content);
   // Groq guarantees valid JSON here
   return response.choices[0].message.content;
 };

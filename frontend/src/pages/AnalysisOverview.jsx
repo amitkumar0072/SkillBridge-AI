@@ -50,8 +50,9 @@ const AnalysisOverview = () => {
           Profile Summary
         </h2>
         <p className="mt-3 text-gray-700">
-          {explanations?.profileSummary ||
-            "Summary not available"}
+            {explanations}
+          {/* {explanations}?.profileSummary ||
+            "Summary not available"} */}
         </p>
       </div>
 
