@@ -1,6 +1,18 @@
 <p align="center">
   <img src="./images/home-page.png"  />
 </p>
+<p align="center">
+  <img src="./images/resume-upload.png"  />
+</p>
+<p align="center">
+  <img src="./images/career-analysis.png"  />
+</p>
+<p align="center">
+  <img src="./images/roadmap.png"  />
+</p>
+<p align="center">
+  <img src="./images/skill-gaps.png"  />
+</p>
 SkillGap AI is an AI-powered career guidance platform that helps users understand their current skill level, compare themselves against target roles, identify skill gaps, and receive a clear, actionable, week-by-week learning roadmap.
 
 Unlike generic career advice tools, this system focuses on personalization, explainability, and practical outcomes.
