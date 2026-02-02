@@ -5,7 +5,7 @@
   <img src="./images/resume-upload.png"  />
 </p>
 <p align="center">
-  <img src="./images/career-analysis.png"  />
+  <img src="./images/carrer-analysis.png"  />
 </p>
 <p align="center">
   <img src="./images/roadmap.png"  />
