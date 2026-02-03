@@ -90,28 +90,9 @@ Skill extraction, Gap analysis, Roadmap generation, Rule-based validation for ac
 
 📂 Project Structure
 
-AI-Career-Navigator/
-│
-├── backend/
-│   ├── routes/
-│   ├── controllers/
-│   ├── services/
-│   ├── uploads/
-│   ├── server.js
-│
-├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── Landing.jsx
-│   │   │   ├── Upload.jsx
-│   │   │   ├── Overview.jsx
-│   │   │   ├── SkillGap.jsx
-│   │   │   └── Roadmap.jsx
-│   │   ├── components/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│
-└── README.md
+<p align="center">
+  <img src="./images/project-structure.png"  />
+</p>
 
 
 🔄 Application Flow
