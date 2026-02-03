@@ -24,6 +24,12 @@ Unlike generic career advice tools, this system focuses on **personalization**, 
 
 ---
 
+## 🌐 Live Demo
+
+**🔗 [Try the Live Application](https://stock-analyst-chat-gpt.vercel.app/)**
+
+Experience the full functionality of the SkillBridge AI  with our live deployment. Test the AI-powered carrer analysis, week by week roadmap, and strenght and weakness and your jon readiness score .
+
 ### **🚀 Project Motivation**
 
 Many students and early professionals face career confusion due to:
