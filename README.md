@@ -117,7 +117,7 @@ AI-Career-Navigator/
 
 
 
-
+```
 
 🔄 Application Flow
 User lands on the landing page
