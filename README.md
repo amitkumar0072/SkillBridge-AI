@@ -1,4 +1,4 @@
-### 🚀 SkillGap AI – Career Guidance & Skill Gap Analyzer
+### 🚀 SkillBridge AI – Career Guidance & Skill Gap Analyzer
 
 <p align="center">
   <img src="./images/home-page.png" />
